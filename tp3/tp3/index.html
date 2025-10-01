@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TP 3</title>
+    <style>
+      /* Para el cambio dinámico de estilo (Punto 1) */
+      #caja {
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+        margin: 20px auto;
+      }
+
+      /* Para crear una animación básica (Punto 2)*/
+      #cuadro {
+        width: 100px;
+        height: 100px;
+        background: green;
+        position: relative;
+        left: 0;
+        transition: left 1s ease-in-out;
+      }
+
+      /* Para efectos de ocultamiento y revelado de elementos (Punto 3) */
+      #texto {
+        opacity: 1;
+        transition: opacity 0.5s ease;
+      }
+      .oculto {
+        opacity: 0;
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Para el cambio dinámico de estilo (Punto 1) !-->
+    <div id="caja"></div>
+    <button id="boton">Cambiar color</button>
+    
+
+    <!-- Para crear una animación básica (Punto 2) !-->
+    <div id="cuadro"></div>
+    <button id="mover">Mover</button>
+
+    <!-- Para efectos de ocultamiento y revelado de elementos (Punto 3) !-->
+    <p id="texto">Este es un texto que se puede ocultar o mostrar.</p>
+    <button id="toggle">Mostrar / Ocultar</button>
+
+    <script>
+      /* Para el cambio dinámico de estilo (Punto 1) */
+      const caja = document.getElementById("caja");
+      const boton = document.getElementById("boton");
+
+      boton.addEventListener("click", () => {
+        caja.style.backgroundColor =
+          caja.style.backgroundColor === "lightblue" ? "lightcoral" : "lightblue";
+      });
+
+      /* Para crear una animación básica (Punto 2) */
+      const cuadro = document.getElementById("cuadro");
+      let movido = false;
+
+      document.getElementById("mover").addEventListener("click", () => {
+        movido = !movido;
+        cuadro.style.left = movido ? "300px" : "0";
+      });
+
+      /* Para efectos de ocultamiento y revelado de elementos (Punto 3) */
+      const texto = document.getElementById("texto");
+      document.getElementById("toggle").addEventListener("click", () => {
+        texto.classList.toggle("oculto");
+      });
+    </script>
+  </body>
+</html>
