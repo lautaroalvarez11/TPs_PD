@@ -10,7 +10,7 @@ export default function Seccion1DOM() {
     setPosicion(posicion === 0 ? 150 : 0);
   };
 
-  // Versión JavaScript nativo
+  // Versión JavaScript Nativo
   const cambiarEstiloJS = () => {
     const box = document.getElementById("box-js");
     box.style.backgroundColor =
